@@ -2,3 +2,4 @@
 *.csv
 config.r
 **/.Rproj.user/
+.Rproj.user
