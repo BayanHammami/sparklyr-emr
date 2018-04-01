@@ -1,10 +1,10 @@
 library(sparklyr)
+library(dplyr)
 
 # create the Spark context, for EMR 5.2 use version = "2.0.0", for EMR 4.7/4.8 use version = "1.6.2", and for EMR 4.6 use "1.6.1"
 sc <- spark_connect(master = "yarn-client", version = "2.1.0")
 
 # load dplyr
-library(dplyr)
 
 # copy some builtin sample data to the Spark cluster
 iris_tbl <- copy_to(sc, iris)
@@ -14,6 +14,8 @@ src_tbls(sc)
 
 # filter by departure delay and print the first few records
 flights_tbl %>% filter(dep_delay == 2)
+
+batting_tbl %>% summarise(count = n())
 
 # plot data on flight delays
 delay <- flights_tbl %>% 
@@ -65,3 +67,8 @@ predicted_mpg <- car$cyl * fit$coefficients["cyl"] + car$wt * fit$coefficients["
 
 # print the original and the predicted
 sprintf("original mpg = %s, predicted mpg = %s", car$mpg, predicted_mpg)
+
+
+
+
+
