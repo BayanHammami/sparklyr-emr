@@ -7,8 +7,6 @@ sc <- spark_connect(master = "yarn-client", version = "2.1.0")
 #Check status of emr cluster
 #aws emr describe-cluster --cluster-id j-1BD6D2VCR6ZXB --region ap-southeast-2
 
-path <- "s3://domaindatateam/Data Science and Data Quality/CrossClusterMovement/antony_custom_dimensions"
-
 Sys.setenv(AWS_ACCESS_KEY_ID=aws_access_key_id)
 Sys.setenv(AWS_SECRET_ACCESS_KEY=aws_secret_access_key)
 
